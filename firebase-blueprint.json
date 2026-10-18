@@ -1,0 +1,118 @@
+{
+  "entities": {
+    "qrItem": {
+      "title": "QR Item",
+      "description": "Represents a video or file converted into a QR code with player and tracking configuration",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the QR item"
+        },
+        "userId": {
+          "type": "string",
+          "description": "Firebase Authentication UID of the owner"
+        },
+        "userEmail": {
+          "type": "string",
+          "description": "Email address of the owner"
+        },
+        "title": {
+          "type": "string",
+          "description": "Title of the video or file"
+        },
+        "description": {
+          "type": "string",
+          "description": "Brief description of the media"
+        },
+        "type": {
+          "type": "string",
+          "description": "Media category (video or file)"
+        },
+        "sourceType": {
+          "type": "string",
+          "description": "Source origin (url, upload, or embed)"
+        },
+        "url": {
+          "type": "string",
+          "description": "The video playback URL or file URL"
+        },
+        "originalFileName": {
+          "type": "string",
+          "description": "Original uploaded file name if applicable"
+        },
+        "fileType": {
+          "type": "string",
+          "description": "MIME type of the media"
+        },
+        "fileSize": {
+          "type": "number",
+          "description": "Size in bytes"
+        },
+        "viewsCount": {
+          "type": "number",
+          "description": "Number of times the QR video player was accessed"
+        },
+        "qrStyle": {
+          "type": "object",
+          "description": "Visual customization settings for the QR code"
+        },
+        "playerSettings": {
+          "type": "object",
+          "description": "Playback behavior options for the scan viewer"
+        },
+        "isPublic": {
+          "type": "boolean",
+          "description": "Whether the QR video is viewable by anyone who scans the code"
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "ISO timestamp of creation"
+        },
+        "updatedAt": {
+          "type": "string",
+          "description": "ISO timestamp of last update"
+        }
+      },
+      "required": ["id", "userId", "title", "url", "type", "isPublic", "createdAt"]
+    },
+    "userProfile": {
+      "title": "User Profile",
+      "description": "User profile document storing basic account preferences",
+      "type": "object",
+      "properties": {
+        "uid": {
+          "type": "string",
+          "description": "Auth UID"
+        },
+        "email": {
+          "type": "string",
+          "description": "User email"
+        },
+        "displayName": {
+          "type": "string",
+          "description": "User display name"
+        },
+        "photoURL": {
+          "type": "string",
+          "description": "User avatar URL"
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "ISO creation timestamp"
+        }
+      },
+      "required": ["uid", "email", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/qr_items/{qrId}": {
+      "schema": "qrItem",
+      "description": "Collection of all video and file QR code items created by users"
+    },
+    "/users/{userId}": {
+      "schema": "userProfile",
+      "description": "Private user profiles accessed only by the account owner"
+    }
+  }
+}

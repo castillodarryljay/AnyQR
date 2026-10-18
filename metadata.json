@@ -1,0 +1,6 @@
+{
+  "name": "StreamQR - Video to QR Generator & Pure Player",
+  "description": "Convert any video URL or file into customized QR codes with instant, distraction-free pure video playback, Firebase cloud sync, project manager, and ZIP code exporter.",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
